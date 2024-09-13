@@ -7,13 +7,24 @@ use Illuminate\Http\Request;
 
 class TarefaController extends Controller
 {
-    // criar a variável protegida
     protected $tarefaService;
 
-    //criar um construtor
-    public function __construct(TarefaService $tarefaService)
+    public function __construct(TarefaService $novoTarefaService)
     {
-        $this->tarefaService=$tarefaService;
+        $this->tarefaService = $novoTarefaService;
+    }
+
+    public function index()
+    {
+        $result = $this->tarefaService->getAll();
+        return response()->json($result);
+    }
+
+    public function findbyid($id)
+    {
+        $result = $this->tarefaService->findbyid($id);
+
+        return $result;
     }
 
     public function store(Request $request){

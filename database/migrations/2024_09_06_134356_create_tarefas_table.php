@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('tarefas', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 100)->nullable(false);
-            $table->string('descricao')->nullable(false);
-            $table->string('status', 20)->nullable(false);
-            $table->dateTime('data_inicio')->nullable(true);
-            $table->dateTime('data_fim')->nullable(true);
+            $table->string('nome' , 255)->nullable(false);
+            $table->string('descricao' , 255)->nullable(false);
+            $table->string('status')->nullable(false);
+            $table->datetime('data_inicio')->nullable(false);
+            $table->datetime('data_fim')->nullable(false);
             $table->timestamps();
         });
     }
